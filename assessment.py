@@ -11,11 +11,12 @@ Part 1: Discussion
    Encapsulation: Everything is kept "together". This also helps prevent data
    from being modified. There are no accidental access/modification.
 
-   Polymorphism:
+   Polymorphism: Interchangeability of components. You can over ride methods, use it and have your own copy of the method.
+   You can take what you want from the parent class and modify it, and you decide exactly what to use.
    
 
 2. What is a class?
-    A blueprint.
+    A construct that Python lets you create to structure your .
 
 3. What is an instance attribute?
     Its created after the instance was instantiated.
@@ -81,12 +82,12 @@ class Exam(object):
         self.questions.append(my_question)
 
     def administor(self):
-        count = 0.0
+        correct = 0.0
         for question in self.questions:
             if question.ask_and_evaluate():
-                count += 1 
+                correct += 1 
 
-        return count/len(self.questions)*100
+        return correct/len(self.questions)*100
 
 
 """
@@ -146,12 +147,12 @@ class Quiz(Exam):
         return super(Quiz, self).add_question(question, correct_answer)
 
     def administor(self):
-        count = 0
+        correct = 0
         for question in self.questions:
             if question.ask_and_evaluate():
-                count += 1 
+                correct += 1 
 
-        if count >= len(self.questions)/2.0:
+        if correct >= len(self.questions)/2.0:
             return 1
         else:
             return 0
